@@ -9,4 +9,8 @@ public class ShoppingSvc {
 		return "Bozo toy";
 	}
 
+	public long getCost(int id) throws Exception{
+		return Long.MAX_VALUE;
+	}
+
 }

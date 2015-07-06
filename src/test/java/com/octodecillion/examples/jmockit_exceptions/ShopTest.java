@@ -5,17 +5,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import mockit.Expectations;
 import mockit.Mock;
 import mockit.MockUp;
 import mockit.Mocked;
 import mockit.Verifications;
+import mockit.integration.junit4.JMockit;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest{
+@RunWith(JMockit.class)
+public class ShopTest{
 	/**
 	 * 
 	 * @param mockLogger Logger object that will be behaviorally mocked.
@@ -34,15 +37,15 @@ public class AppTest{
     		
 		};
 		
-		// the CUT	
-    	final App app = new App();
+		// the SUT	
+    	final Shop shop = new Shop();
 
     	// what we expect to be invoked
     	new Expectations() {{
 			mockLogger.log(Level.SEVERE,anyString); 
 		}};
 		
-		app.getProduct(123); // actual invocation
+		shop.getProduct(123); // actual invocation
 		
 		// verify that we did invoke the expected method of collaborator
 		new Verifications(){{
